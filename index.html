@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Hangman game</title>
 	<link rel="stylesheet" href="styles/main.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -17,13 +18,13 @@
 		<h2 class="game game__header">Word</h2>
 		<div id="word" class="game game__word"></div>
 	</div>
-	<div class="game game__section game__guess-section">
+	<div id="livesSection" class="game game__section game__guess-section">
 		<h2 class="game game__header">Previous Guesses</h2>
 		<div id="previousGuesses" class="game game__previous-guesses"></div>
 	</div>
 	<div class="game game__section game__lives-section">
 		<h2 class="game game__header">Lives left</h2>
-		<div id="lives" class="game game__lives">10</div>
+		<div id="lives" class="game game__lives"></div>
 	</div>
 	<div class="game game__section game__current-guess">
 		<h2 class="game game__header">Guess</h2>
