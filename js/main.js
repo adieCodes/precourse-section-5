@@ -16,4 +16,19 @@ var hangman = (function() {
 		hiddenWordEle = document.createTextNode(hiddenWord);
 		document.getElementById('word').append(hiddenWordEle);
 	})();
+	var previousGuesses = [];
+	document.getElementById('guessSubmit').addEventListener('click', function() {
+		var currentGuess = document.getElementById('guess').value;
+		if (previousGuesses.length === 0) {
+			previousGuesses[0] = currentGuess;
+			document.getElementById('previousGuesses').append(currentGuess + ' ');
+		} else if (previousGuesses.indexOf(currentGuess) === -1) {
+			previousGuesses.push(currentGuess);
+			document.getElementById('previousGuesses').append(currentGuess + ' ');
+		} else {
+			alert("Already guessed this letter");
+		}
+		document.getElementById('guess').value = '';
+		currentGuess = '';
+	});
 })();
