@@ -1,4 +1,3 @@
-console.log("working");
 // TODO: When character guessed correctly reveal matches in word
 // TODO: When character guessed incorrectly add character to #guesses
 // TODO: When character guessed incorectly remove a life
@@ -7,12 +6,14 @@ console.log("working");
 // TODO: Use API to chose a category and then a random word
 
 var hangman = (function() {
-	var word = 'Steve';
-	var hiddenWord = '';
-	var hiddenWordEle;
-	for (var i = 0; i < word.length; i++) {
-		hiddenWord += '_ ';
-	}
-	hiddenWordEle = document.createTextNode(hiddenWord);
-	document.getElementById('word').append(hiddenWordEle);
+	var insertWord = (function() {
+		var word = 'Steve';
+		var hiddenWord = '';
+		var hiddenWordEle;
+		for (var i = 0; i < word.length; i++) {
+			hiddenWord += '_ ';
+		}
+		hiddenWordEle = document.createTextNode(hiddenWord);
+		document.getElementById('word').append(hiddenWordEle);
+	})();
 })();
