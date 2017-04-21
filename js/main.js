@@ -60,6 +60,7 @@ var hangman = (function() {
 	var checkGuess = function(char) {
 		hiddenWordToArr = hiddenWord.split(' ');
 		gameWordToArr = gameWord.split('');
+		var updatedWord;
 		console.log(hiddenWordToArr);
 		if (gameWordToArr.indexOf(char) === -1) {
 			lifeCount--;
@@ -73,12 +74,14 @@ var hangman = (function() {
 					hiddenWordToArr[index] = char;
 				}
 			});
-			var updatedWord = hiddenWordToArr.join(' ');
+			updatedWord = hiddenWordToArr.join(' ');
 			$('#word').replaceWith('<span id="word">' + updatedWord + '</span>');
 			hiddenWord = updatedWord;
 		}
 		if (lifeCount === 0) {
 			alert("Game over");
+		} else if (hiddenWord.trim() === gameWord.split('').join(' ')) {
+			alert("Winner!");
 		}
 	};
 })();
