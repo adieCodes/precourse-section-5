@@ -1,5 +1,4 @@
-// TODO: added life count update but now need to refactor previous code to make better use of jQuery and simplify
-// TODO: When character guessed correctly reveal matches in word
+// TODO: If previous guess has other guesses between it's not noticed as duplicate
 // TODO: When character guessed incorrectly add character to #guesses
 // TODO: When character guessed incorectly remove a life
 // TODO: When lives === 0, game over
@@ -10,8 +9,10 @@ var hangman = (function() {
 	// on page load...
 	// setting variables to be accessible thoughout function
 	var gameWord;
-	// turn game word to array to make easier to replace
-	var gameWordToArr;
+	// setting variable to store underscores
+	var hiddenWord = '';
+	// turn hidden word to array to make easier to replace
+	var hiddenWordToArr, gameWordToArr;
 	// Set number of lives
 	var lifeCount = 10;
 	// create element to append number of lives
@@ -20,15 +21,14 @@ var hangman = (function() {
 	lifeCountEle.append(lifeCount);
 	// add text node to page for lives
 	document.getElementById('lives').append(lifeCountEle);
-	// setting variable to act as HTML node to add underscores to page
-	var hiddenWordEle;
+	// setting variable to act as HTML node to add underscores to page with text node and ID
+	var hiddenWordEle = document.createElement('span');
+	hiddenWordEle.id = "word";
 	// insert underscores for each character in the word
 	var insertWord = (function() {
 		// by chosing a word
 		gameWord = 'Steve';
 		gameWord = gameWord.toLowerCase();
-		// setting variable to store underscores
-		var hiddenWord = '';
 		// loop each character of word and add underscore
 		for (var i = 0; i < gameWord.length; i++) {
 			hiddenWord += '_ ';
@@ -46,6 +46,7 @@ var hangman = (function() {
 		// set current guess to input
 		var currentGuess = document.getElementById('guess').value.toLowerCase();
 		// add current guess to previous guess array
+		// call checkGuess function if new guess
 		if (previousGuesses.length === 0 || previousGuesses.indexOf(currentGuess) === -1) {
 			previousGuesses[0] = currentGuess;
 			document.getElementById('previousGuesses').append(currentGuess + ' ');
@@ -59,13 +60,24 @@ var hangman = (function() {
 	});
 	var lifeEle = document.getElementById('lives');
 	var checkGuess = function(char) {
+		hiddenWordToArr = hiddenWord.split(' ');
 		gameWordToArr = gameWord.split('');
-		console.log(gameWordToArr);
+		console.log(hiddenWordToArr);
 		if (gameWordToArr.indexOf(char) === -1) {
 			lifeCount--;
 			//lifeEle.removeChild(lifeCountEle);
 			var span = '<span id="gameLives">' + lifeCount + '</span>';
 			$('#gameLives').replaceWith(span);
+		} else {
+			gameWordToArr.forEach(function(ele, index) {
+				console.log("ele = " + ele + " char = " + char);
+				if (ele === char) {
+					hiddenWordToArr[index] = char;
+				}
+			});
+			var updatedWord = hiddenWordToArr.join(' ');
+			$('#word').replaceWith('<span id="word">' + updatedWord + '</span>');
+			hiddenWord = updatedWord;
 		}
 	};
 })();
