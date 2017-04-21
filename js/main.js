@@ -34,9 +34,11 @@ var hangman = (function() {
 			hiddenWord += '_ ';
 		}
 		// create text node for game word and life count
-		hiddenWordEle = document.createTextNode(hiddenWord);
+		hiddenWordEle = document.createElement('span');
+		hiddenWordEle.id = "word";
+		hiddenWordEle.append(hiddenWord);
 		// add text node to page for game word
-		document.getElementById('word').append(hiddenWordEle);
+		document.getElementById('wordContainer').append(hiddenWordEle);
 	})();
 	// store previous guesses outside of function to stop it getting reset
 	var previousGuesses = [];
