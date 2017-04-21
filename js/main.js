@@ -44,8 +44,8 @@ var hangman = (function() {
 		var currentGuess = document.getElementById('guess').value.toLowerCase();
 		// add current guess to previous guess array
 		// call checkGuess function if new guess
-		if (previousGuesses.length === 0 || previousGuesses.indexOf(currentGuess) === -1) {
-			previousGuesses[0] = currentGuess;
+		if (previousGuesses.indexOf(currentGuess) === -1) {
+			previousGuesses.push(currentGuess);
 			document.getElementById('previousGuesses').append(currentGuess + ' ');
 			checkGuess(currentGuess);
 		} else {
