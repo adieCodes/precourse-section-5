@@ -1,5 +1,3 @@
-// TODO: If previous guess has other guesses between it's not noticed as duplicate
-// TODO: When character guessed incorrectly add character to #guesses
 // TODO: Use API to chose a category and then a random word
 
 var hangman = (function() {
