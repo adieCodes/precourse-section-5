@@ -1,6 +1,5 @@
 // TODO: If previous guess has other guesses between it's not noticed as duplicate
 // TODO: When character guessed incorrectly add character to #guesses
-// TODO: When all characters of word guessed, game won
 // TODO: Use API to chose a category and then a random word
 
 var hangman = (function() {
@@ -61,7 +60,6 @@ var hangman = (function() {
 		hiddenWordToArr = hiddenWord.split(' ');
 		gameWordToArr = gameWord.split('');
 		var updatedWord;
-		console.log(hiddenWordToArr);
 		if (gameWordToArr.indexOf(char) === -1) {
 			lifeCount--;
 			//lifeEle.removeChild(lifeCountEle);
@@ -69,7 +67,6 @@ var hangman = (function() {
 			$('#gameLives').replaceWith(span);
 		} else {
 			gameWordToArr.forEach(function(ele, index) {
-				console.log("ele = " + ele + " char = " + char);
 				if (ele === char) {
 					hiddenWordToArr[index] = char;
 				}
