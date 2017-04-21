@@ -7,18 +7,22 @@
 // TODO: Use API to chose a category and then a random word
 
 var hangman = (function() {
-	// on page load insert underscores for each character in the word
-	// setting variables to be accessible thoughout program
+	// on page load...
+	// setting variables to be accessible thoughout function
 	var gameWord;
 	// turn game word to array to make easier to replace
 	var gameWordToArr;
 	// Set number of lives
 	var lifeCount = 10;
+	// create element to append number of lives
 	var lifeCountEle = document.createElement("span");
 	lifeCountEle.id = 'gameLives';
 	lifeCountEle.append(lifeCount);
+	// add text node to page for lives
+	document.getElementById('lives').append(lifeCountEle);
 	// setting variable to act as HTML node to add underscores to page
 	var hiddenWordEle;
+	// insert underscores for each character in the word
 	var insertWord = (function() {
 		// by chosing a word
 		gameWord = 'Steve';
@@ -33,8 +37,6 @@ var hangman = (function() {
 		hiddenWordEle = document.createTextNode(hiddenWord);
 		// add text node to page for game word
 		document.getElementById('word').append(hiddenWordEle);
-		// add text node to page for lives
-		document.getElementById('lives').append(lifeCountEle);
 	})();
 	// store previous guesses outside of function to stop it getting reset
 	var previousGuesses = [];
