@@ -1,6 +1,5 @@
 // TODO: If previous guess has other guesses between it's not noticed as duplicate
 // TODO: When character guessed incorrectly add character to #guesses
-// TODO: When lives === 0, game over
 // TODO: When all characters of word guessed, game won
 // TODO: Use API to chose a category and then a random word
 
