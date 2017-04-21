@@ -1,6 +1,5 @@
 // TODO: If previous guess has other guesses between it's not noticed as duplicate
 // TODO: When character guessed incorrectly add character to #guesses
-// TODO: When character guessed incorectly remove a life
 // TODO: When lives === 0, game over
 // TODO: When all characters of word guessed, game won
 // TODO: Use API to chose a category and then a random word
@@ -78,6 +77,9 @@ var hangman = (function() {
 			var updatedWord = hiddenWordToArr.join(' ');
 			$('#word').replaceWith('<span id="word">' + updatedWord + '</span>');
 			hiddenWord = updatedWord;
+		}
+		if (lifeCount === 0) {
+			alert("Game over");
 		}
 	};
 })();
