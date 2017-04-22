@@ -4,6 +4,7 @@ var hangman = (function() {
 	// on page load...
 	// setting variables to be accessible thoughout function
 	var gameWord;
+	var category;
 	// setting variable to store underscores
 	var hiddenWord = '';
 	// turn hidden word to array to make easier to replace
@@ -19,6 +20,17 @@ var hangman = (function() {
 	// setting variable to act as HTML node to add underscores to page with text node and ID
 	var hiddenWordEle = document.createElement('span');
 	hiddenWordEle.id = "word";
+
+	var gameStart = (function() {
+		$(document).ready(function() {
+			$('#myModal').modal('show');
+		});
+		var chooseCategory = function(e) {
+			category = e.target.id;
+			$('#myModal').modal('hide');
+		};
+		document.getElementById('modal-body').addEventListener('click', chooseCategory, false);
+	})();
 	// insert underscores for each character in the word
 	var insertWord = (function() {
 		// by chosing a word
