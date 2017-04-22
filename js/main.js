@@ -1,4 +1,4 @@
-// TODO: Use API to chose a category and then a random word
+// TODO: Create object by category with associated gameWords
 
 var hangman = (function() {
 	// on page load...
