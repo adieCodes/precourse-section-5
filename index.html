@@ -13,29 +13,34 @@
 <body>
 	<div class="container">
 		<h1 class="game game__title">Hangman</h1>
-	</div>
-	<div class="game game__section game__word-section">
-		<h2 class="game game__header">Word</h2>
-		<div id="wordContainer" class="game game__word"></div>
-	</div>
-	<div id="livesSection" class="game game__section game__guess-section">
-		<h2 class="game game__header">Previous Guesses</h2>
-		<div id="previousGuesses" class="game game__previous-guesses"></div>
-	</div>
-	<div class="game game__section game__lives-section">
-		<h2 class="game game__header">Lives left</h2>
-		<div id="lives" class="game game__lives"></div>
-	</div>
-	<div class="game game__section game__current-guess">
-		<h2 class="game game__header">Guess</h2>
-		<div action="js/main.js" id="currentGuess" class="game game__current-guess">
-			<form id="guessForm">
-				<input id="guess" name="guess" type="text" pattern="[A-Za-z]" title="Guess can only be a single alphabetical character" maxlength="1">
-				<input type="button" value="submit" id="guessSubmit">
-			</form>
-
+		<div class="game game__section game__word-section">
+			<h2 class="game game__header">Word</h2>
+			<div id="wordContainer" class="game game__word"></div>
 		</div>
+		<!-- .game .game__section .game__word-section -->
+		<div id="livesSection" class="game game__section game__guess-section">
+			<h2 class="game game__header">Previous Guesses</h2>
+			<div id="previousGuesses" class="game game__previous-guesses"></div>
+		</div>
+		<!-- #livesSection .game .game__section .game__guess-section -->
+		<div class="game game__section game__lives-section">
+			<h2 class="game game__header">Lives left</h2>
+			<div id="lives" class="game game__lives"></div>
+		</div>
+		<!-- .game .game__section .game__lives-section -->
+		<div class="game game__section game__current-guess">
+			<h2 class="game game__header">Guess</h2>
+			<div action="js/main.js" id="currentGuess" class="game game__current-guess">
+				<form id="guessForm">
+					<input id="guess" name="guess" type="text" pattern="[A-Za-z]" title="Guess can only be a single alphabetical character" maxlength="1">
+					<input type="button" value="submit" id="guessSubmit">
+				</form>
+			</div>
+			<!-- #currentGuess .game .game__current-guess -->
+		</div>
+		<!-- .game .game__section .game__current-guess -->
 	</div>
+	<!-- .container -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="js/main.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
