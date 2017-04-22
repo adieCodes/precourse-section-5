@@ -1,4 +1,5 @@
 // TODO: Create object by category with associated gameWords
+// TODO: On game end (win and lose) restart the game
 
 var hangman = (function() {
 	// on page load...
