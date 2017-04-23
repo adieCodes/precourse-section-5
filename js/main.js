@@ -1,11 +1,13 @@
 // TODO: Create object by category with associated gameWords
 // TODO: On game end (win and lose) restart the game
+// TODO: Add category to UI
+// TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
+// TODO: Change game start modal to button group, this will mean category is always displayed
 
 var hangman = (function() {
 	// on page load...
 	// setting variables to be accessible thoughout function
 	var gameWord;
-	var category;
 	// setting variable to store underscores
 	var hiddenWord = '';
 	// turn hidden word to array to make easier to replace
@@ -29,15 +31,22 @@ var hangman = (function() {
 		var chooseCategory = function(e) {
 			category = e.target.id;
 			$('#myModal').modal('hide');
+			insertWord();
 		};
 		document.getElementById('modal-body').addEventListener('click', chooseCategory, false);
 	})();
 	// insert underscores for each character in the word
-	var insertWord = (function() {
-		// by chosing a word
-		gameWord = 'Steve';
+	var insertWord = function() {
+		// assign a word from the appropriate category
+		if (category == 'btn--animal') {
+			gameWord = 'giraffe';
+		} else if (category == 'btn--sport') {
+			gameWord = 'cricket';
+		} else {
+			gameWord = 'manchester';
+		}
 		gameWord = gameWord.toLowerCase();
-		// loop each character of word and add underscore
+		// loop each character of gameWord and add underscore
 		for (var i = 0; i < gameWord.length; i++) {
 			hiddenWord += '_ ';
 		}
@@ -47,7 +56,7 @@ var hangman = (function() {
 		hiddenWordEle.append(hiddenWord);
 		// add text node to page for game word
 		document.getElementById('wordContainer').append(hiddenWordEle);
-	})();
+	};
 	// store previous guesses outside of function to stop it getting reset
 	var previousGuesses = [];
 	document.getElementById('guessSubmit').addEventListener('click', function() {
