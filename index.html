@@ -29,6 +29,19 @@
 
 	<div class="container">
 		<h1 class="game game__title">Hangman</h1>
+		<div id="categories" class="btn-group" data-toggle="buttons">
+			<h2 class="game game__title">Choose a category...</h2>
+			<label id="animal" class="btn btn-primary game--category">
+      <input type="radio" name="options" autocomplete="off"> Animal
+      </label>
+			<label id="sport" class="btn btn-primary game--category">
+        <input type="radio" name="options" autocomplete="off"> Sport
+      </label>
+			<label id="city" class="btn btn-primary game--category">
+        <input type="radio" name="options" autocomplete="off"> City
+      </label>
+		</div>
+		<!-- .categories -->
 		<div class="game game__section game__word-section">
 			<h2 class="game game__header">Word</h2>
 			<div id="wordContainer" class="game game__word"></div>

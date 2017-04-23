@@ -1,8 +1,6 @@
-// TODO: Create object by category with associated gameWords
 // TODO: On game end (win and lose) restart the game
-// TODO: Add category to UI
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
-// TODO: Change game start modal to button group, this will mean category is always displayed
+// TODO: Override Bootstraps allocation of active state on click of category, we only want this to run once
 
 var hangman = (function() {
 	// on page load...
@@ -23,24 +21,22 @@ var hangman = (function() {
 	// setting variable to act as HTML node to add underscores to page with text node and ID
 	var hiddenWordEle = document.createElement('span');
 	hiddenWordEle.id = "word";
-
-	var gameStart = (function() {
-		$(document).ready(function() {
-			$('#myModal').modal('show');
-		});
+	// IIFE to run event listener for category selection
+	var categorySelection = (function() {
 		var chooseCategory = function(e) {
+			document.getElementById('categories').removeEventListener('click', chooseCategory, false);
 			category = e.target.id;
-			$('#myModal').modal('hide');
+			console.log(category);
 			insertWord();
 		};
-		document.getElementById('modal-body').addEventListener('click', chooseCategory, false);
+		document.getElementById('categories').addEventListener('click', chooseCategory, false);
 	})();
 	// insert underscores for each character in the word
 	var insertWord = function() {
 		// assign a word from the appropriate category
-		if (category == 'btn--animal') {
+		if (category == 'animal') {
 			gameWord = 'giraffe';
-		} else if (category == 'btn--sport') {
+		} else if (category == 'sport') {
 			gameWord = 'cricket';
 		} else {
 			gameWord = 'manchester';
