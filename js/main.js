@@ -22,15 +22,15 @@ var hangman = (function() {
 	var hiddenWordEle = document.createElement('span');
 	hiddenWordEle.id = "word";
 	// IIFE to run event listener for category selection
-	var categorySelection = (function() {
+	var categorySelection = function() {
 		var chooseCategory = function(e) {
 			document.getElementById('categories').removeEventListener('click', chooseCategory, false);
 			category = e.target.id;
-			console.log(category);
 			insertWord();
 		};
 		document.getElementById('categories').addEventListener('click', chooseCategory, false);
-	})();
+	};
+	categorySelection();
 	// insert underscores for each character in the word
 	var insertWord = function() {
 		// assign a word from the appropriate category
@@ -68,20 +68,21 @@ var hangman = (function() {
 			// if letter already guessed return alert
 			alert("Already guessed this letter");
 		}
-		// display guess on page
-		document.getElementById('guess').value = '';
 	});
 	var lifeEle = document.getElementById('lives');
 	var checkGuess = function(char) {
+		// array of underscores the length of the gameWord
 		hiddenWordToArr = hiddenWord.split(' ');
+		// array of every letter in the gameWord
 		gameWordToArr = gameWord.split('');
 		var updatedWord;
+		// if character guessed isn't found in gameWord reduce lifecount
 		if (gameWordToArr.indexOf(char) === -1) {
 			lifeCount--;
-			//lifeEle.removeChild(lifeCountEle);
 			var span = '<span id="gameLives">' + lifeCount + '</span>';
 			$('#gameLives').replaceWith(span);
 		} else {
+			// if character is in gameWord show where it is
 			gameWordToArr.forEach(function(ele, index) {
 				if (ele === char) {
 					hiddenWordToArr[index] = char;
@@ -91,6 +92,7 @@ var hangman = (function() {
 			$('#word').replaceWith('<span id="word">' + updatedWord + '</span>');
 			hiddenWord = updatedWord;
 		}
+		// game ending scenario's
 		if (lifeCount === 0) {
 			alert("Game over");
 		} else if (hiddenWord.trim() === gameWord.split('').join(' ')) {
