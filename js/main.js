@@ -1,8 +1,7 @@
-// TODO: On game end (win and lose) restart the game
-// TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
-// TODO: Override Bootstraps allocation of active state on click of category, we only want this to run once
 // TODO: Add game reset model
 // TODO: Change alerts to bootstrap alerts
+// TODO: Override Bootstraps allocation of active state on click of category, we only want this to run once
+// TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
 
 var hangman = (function() {
 	// on page load...
