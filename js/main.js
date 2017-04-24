@@ -1,6 +1,8 @@
 // TODO: On game end (win and lose) restart the game
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
 // TODO: Override Bootstraps allocation of active state on click of category, we only want this to run once
+// TODO: Add game reset model
+// TODO: Change alerts to bootstrap alerts
 
 var hangman = (function() {
 	// on page load...
@@ -76,11 +78,13 @@ var hangman = (function() {
 		// array of every letter in the gameWord
 		gameWordToArr = gameWord.split('');
 		var updatedWord;
+		// variable to store element to display life count
+		var lifeSpan;
 		// if character guessed isn't found in gameWord reduce lifecount
 		if (gameWordToArr.indexOf(char) === -1) {
 			lifeCount--;
-			var span = '<span id="gameLives">' + lifeCount + '</span>';
-			$('#gameLives').replaceWith(span);
+			lifeSpan = '<span id="gameLives">' + lifeCount + '</span>';
+			$('#gameLives').replaceWith(lifeSpan);
 		} else {
 			// if character is in gameWord show where it is
 			gameWordToArr.forEach(function(ele, index) {
@@ -95,8 +99,25 @@ var hangman = (function() {
 		// game ending scenario's
 		if (lifeCount === 0) {
 			alert("Game over");
+			gameReset();
 		} else if (hiddenWord.trim() === gameWord.split('').join(' ')) {
 			alert("Winner!");
+			gameReset();
 		}
+	};
+	var gameReset = function() {
+		gameWord = '';
+		lifeCount = 10;
+		hiddenWord = '';
+		previousGuesses = [];
+		updatedWord = '';
+		hiddenWordToArr = '';
+		gameWordToArr = '';
+		category = '';
+		$('#word').remove();
+		lifeSpan = '<span id="gameLives">' + lifeCount + '</span>';
+		$('#previousGuesses').html('');
+		$('#gameLives').replaceWith(lifeSpan);
+		categorySelection();
 	};
 })();
