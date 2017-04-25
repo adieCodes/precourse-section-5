@@ -1,6 +1,5 @@
 // TODO: Bind enter on text field to submit
 // or change input to mouse selection of elements
-// TODO: Clear guess input after submit
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
 
 var hangman = (function() {
