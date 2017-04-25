@@ -15,7 +15,7 @@
 		<h1 class="game game__title">Hangman</h1>
 		<div id="categories" class="game game__categories btn-group" data-toggle="buttons">
 			<h2 class="game game__title">Choose a category...</h2>
-			<label id="animal" class="btn btn-primary game--category">
+			<label id="animal" class="btn btn-primary game__category">
       <input type="radio" name="options" autocomplete="off"> Animal
       </label>
 			<label id="sport" class="btn btn-primary game__category">
@@ -26,7 +26,7 @@
       </label>
 		</div>
 		<!-- #categories .game .game--categories -->
-		<div id="gameBoard" class="game game__board hidden">
+		<div id="gameBoard" class="game game__board hidden panel panel-default">
 			<div class="game game__section game__section--word">
 				<h2 class="game game__header">Word</h2>
 				<div id="wordContainer" class="game game__word"></div>
@@ -46,8 +46,8 @@
 				<h2 class="game game__header">Guess</h2>
 				<div action="js/main.js" id="currentGuess" class="game game__guess--current">
 					<form id="guessForm">
-						<input id="guess" name="guess" type="text" pattern="[A-Za-z]" title="Guess can only be a single alphabetical character" maxlength="1">
-						<input type="button" value="submit" id="guessSubmit">
+						<input id="guess" class="game__guess" name="guess" type="text" pattern="[A-Za-z]" title="Guess can only be a single alphabetical character" maxlength="1">
+						<input type="button" value="submit" class="game--submit" id="guessSubmit">
 					</form>
 				</div>
 				<!-- #currentGuess .game .game__guess--current -->
