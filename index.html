@@ -13,44 +13,44 @@
 <body>
 	<div class="container">
 		<h1 class="game game__title">Hangman</h1>
-		<div id="categories" class="btn-group" data-toggle="buttons">
+		<div id="categories" class="game game__categories btn-group" data-toggle="buttons">
 			<h2 class="game game__title">Choose a category...</h2>
 			<label id="animal" class="btn btn-primary game--category">
       <input type="radio" name="options" autocomplete="off"> Animal
       </label>
-			<label id="sport" class="btn btn-primary game--category">
+			<label id="sport" class="btn btn-primary game__category">
         <input type="radio" name="options" autocomplete="off"> Sport
       </label>
-			<label id="city" class="btn btn-primary game--category">
+			<label id="city" class="btn btn-primary game__category">
         <input type="radio" name="options" autocomplete="off"> City
       </label>
 		</div>
-		<!-- .categories -->
+		<!-- #categories .game .game--categories -->
 		<div id="gameBoard" class="game game__board hidden">
-			<div class="game game__section game__word-section">
+			<div class="game game__section game__section--word">
 				<h2 class="game game__header">Word</h2>
 				<div id="wordContainer" class="game game__word"></div>
 			</div>
-			<!-- .game .game__section .game__word-section -->
-			<div id="livesSection" class="game game__section game__guess-section">
+			<!-- .game .game__section .game__section--word -->
+			<div id="livesSection" class="game game__section game__section--guess">
 				<h2 class="game game__header">Previous Guesses</h2>
 				<div id="previousGuesses" class="game game__previous-guesses"></div>
 			</div>
-			<!-- #livesSection .game .game__section .game__guess-section -->
-			<div class="game game__section game__lives-section">
+			<!-- #livesSection .game .game__section .game__section--guess -->
+			<div class="game game__section game__section--lives">
 				<h2 class="game game__header">Lives left</h2>
 				<div id="lives" class="game game__lives"></div>
 			</div>
 			<!-- .game .game__section .game__lives-section -->
-			<div class="game game__section game__current-guess">
+			<div class="game game__section game__guess--current">
 				<h2 class="game game__header">Guess</h2>
-				<div action="js/main.js" id="currentGuess" class="game game__current-guess">
+				<div action="js/main.js" id="currentGuess" class="game game__guess--current">
 					<form id="guessForm">
 						<input id="guess" name="guess" type="text" pattern="[A-Za-z]" title="Guess can only be a single alphabetical character" maxlength="1">
 						<input type="button" value="submit" id="guessSubmit">
 					</form>
 				</div>
-				<!-- #currentGuess .game .game__current-guess -->
+				<!-- #currentGuess .game .game__guess--current -->
 			</div>
 			<!-- .game .game__section .game__current-guess -->
 		</div>
