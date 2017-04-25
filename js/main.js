@@ -1,4 +1,6 @@
-// TODO: Change input to mouse selection of elements
+// TODO: Bind enter on text field to submit
+// or change input to mouse selection of elements
+// TODO: Clear guess input after submit
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
 
 var hangman = (function() {
@@ -73,6 +75,10 @@ var hangman = (function() {
 			var duplicateWarning = '<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning!</strong> You already guessed this character.</div>';
 			$('.container').prepend(duplicateWarning);
 		}
+		// clear guess from input
+		document.getElementById('guess').value = '';
+		// set focus back to input
+		document.getElementById('guess').focus();
 	});
 	var lifeEle = document.getElementById('lives');
 	var checkGuess = function(char) {
