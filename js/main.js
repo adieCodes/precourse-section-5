@@ -1,5 +1,4 @@
 // TODO: Change input to mouse selection of elements
-// TODO: Change alerts to bootstrap alerts
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
 // TODO: Decide on action if player doesn't want another game
 
@@ -72,7 +71,8 @@ var hangman = (function() {
 			checkGuess(currentGuess);
 		} else {
 			// if letter already guessed return alert
-			alert("Already guessed this letter");
+			var duplicateWarning = '<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning!</strong> You already guessed this character.</div>';
+			$('.container').prepend(duplicateWarning);
 		}
 	});
 	var lifeEle = document.getElementById('lives');
