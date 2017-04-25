@@ -1,4 +1,3 @@
-// TODO: Override Bootstraps allocation of active state on click of category, we only want this to run once
 // TODO: Clear active state on reset
 // TODO: Change input to mouse selection of elements
 // TODO: Change alerts to bootstrap alerts
@@ -27,7 +26,10 @@ var hangman = (function() {
 	// IIFE to run event listener for category selection
 	var categorySelection = function() {
 		var chooseCategory = function(e) {
+			// remove event listener to stop from add multiple words
 			document.getElementById('categories').removeEventListener('click', chooseCategory, false);
+			// highlight selection
+			$(e.target).addClass('chosen');
 			category = e.target.id;
 			insertWord();
 		};
