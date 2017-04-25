@@ -6,15 +6,16 @@
   color: white;
   background: url(../images/background.jpg);
   background-size: cover;
+  background-position: center;
 }
 
-.btn.btn-primary.game--category {
+.btn.btn-primary.game__category {
   background-color: black;
   color: white;
   border: white 1px solid;
 }
 
-.btn.btn-primary.game--category.chosen {
+.btn.btn-primary.game__category.chosen {
   background-color: white;
   color: black;
 }
