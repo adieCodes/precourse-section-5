@@ -1,6 +1,5 @@
 // TODO: Change input to mouse selection of elements
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
-// TODO: Decide on action if player doesn't want another game
 
 var hangman = (function() {
 	// on page load...
