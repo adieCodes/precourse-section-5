@@ -1,7 +1,7 @@
 // TODO: Change input to mouse selection of elements
 // TODO: Change alerts to bootstrap alerts
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
-// TODO: Don't display rest of game until category is selected
+// TODO: Decide on action if player doesn't want another game
 
 var hangman = (function() {
 	// on page load...
@@ -56,6 +56,8 @@ var hangman = (function() {
 		hiddenWordEle.append(hiddenWord);
 		// add text node to page for game word
 		document.getElementById('wordContainer').append(hiddenWordEle);
+		$('#gameBoard').removeClass('hidden');
+		$('#gameBoard').addClass('show');
 	};
 	// store previous guesses outside of function to stop it getting reset
 	var previousGuesses = [];
@@ -129,6 +131,8 @@ var hangman = (function() {
 		lifeSpan = '<span id="gameLives">' + lifeCount + '</span>';
 		$('#previousGuesses').html('');
 		$('#gameLives').replaceWith(lifeSpan);
+		$('#gameBoard').removeClass('show');
+		$('#gameBoard').addClass('hidden');
 		categorySelection();
 	};
 })();
