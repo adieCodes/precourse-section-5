@@ -1,4 +1,3 @@
-// TODO: Clear active state on reset
 // TODO: Change input to mouse selection of elements
 // TODO: Change alerts to bootstrap alerts
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
@@ -117,6 +116,7 @@ var hangman = (function() {
 		}
 	};
 	var gameReset = function() {
+		$('#' + category).removeClass('chosen active');
 		gameWord = '';
 		lifeCount = 10;
 		hiddenWord = '';
