@@ -1,7 +1,9 @@
-// TODO: Add game reset model
-// TODO: Change alerts to bootstrap alerts
 // TODO: Override Bootstraps allocation of active state on click of category, we only want this to run once
+// TODO: Clear active state on reset
+// TODO: Change input to mouse selection of elements
+// TODO: Change alerts to bootstrap alerts
 // TODO: Add support for multiword gameWord (e.g. 'Steve Jobs')
+// TODO: Don't display rest of game until category is selected
 
 var hangman = (function() {
 	// on page load...
@@ -97,11 +99,19 @@ var hangman = (function() {
 		}
 		// game ending scenario's
 		if (lifeCount === 0) {
-			alert("Game over");
-			gameReset();
-		} else if (hiddenWord.trim() === gameWord.split('').join(' ')) {
-			alert("Winner!");
-			gameReset();
+			$('#gameResult').append('<span>You lose :(</span>');
+			$('#gameReset').modal('show');
+			$('#gameResetYes').on('click', function() {
+				gameReset();
+				$('#gameReset').modal('hide');
+			});
+		} else if (hiddenWord.trim() === gameWordToArr.join(' ')) {
+			$('#gameResult').append('<span>Winner, high fives all round!!</span>');
+			$('#gameReset').modal('show');
+			$('#gameResetYes').on('click', function() {
+				gameReset();
+				$('#gameReset').modal('hide');
+			});
 		}
 	};
 	var gameReset = function() {

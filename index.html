@@ -52,6 +52,24 @@
 			<!-- #currentGuess .game .game__current-guess -->
 		</div>
 		<!-- .game .game__section .game__current-guess -->
+		<!-- Modal -->
+		<div class="game game__reset-modal modal fade" id="gameReset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="game game__result modal-title" id="gameResult"></h4>
+					</div>
+					<div class="modal-body">
+						Would you like another game?
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="gameResetNo" class="btn btn-default" data-dismiss="modal">No thanks</button>
+						<button type="button" id="gameResetYes" class="btn btn-primary">Yeh!</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- .container -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
