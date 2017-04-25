@@ -1,4 +1,20 @@
-.btn.btn-primary.game--category.chosen {
-  background-color: green;
+.container {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
   color: white;
+  background: url(../images/background.jpg);
+  background-size: cover;
+}
+
+.btn.btn-primary.game--category {
+  background-color: black;
+  color: white;
+  border: white 1px solid;
+}
+
+.btn.btn-primary.game--category.chosen {
+  background-color: white;
+  color: black;
 }
