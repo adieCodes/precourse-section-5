@@ -21,7 +21,6 @@ var hangman = (function() {
 	// setting variable to act as HTML node to add underscores to page with text node and ID
 	var hiddenWordEle = document.createElement('span');
 	hiddenWordEle.id = "word";
-	// IIFE to run event listener for category selection
 	var categorySelection = function() {
 		var chooseCategory = function(e) {
 			// remove event listener to stop from add multiple words
@@ -33,6 +32,7 @@ var hangman = (function() {
 		};
 		document.getElementById('categories').addEventListener('click', chooseCategory, false);
 	};
+	// Function called immediately to run event listener for category selection, not IIFE as needs to be called by gameReset()
 	categorySelection();
 	// insert underscores for each character in the word
 	var insertWord = function() {
@@ -79,7 +79,6 @@ var hangman = (function() {
 		// set focus back to input
 		document.getElementById('guess').focus();
 	});
-	var lifeEle = document.getElementById('lives');
 	var checkGuess = function(char) {
 		// array of underscores the length of the gameWord
 		hiddenWordToArr = hiddenWord.split(' ');
@@ -106,14 +105,14 @@ var hangman = (function() {
 		}
 		// game ending scenario's
 		if (lifeCount === 0) {
-			$('#gameResult').append('<span>You lose :(</span>');
+			$('#gameResult').append('<span class="game--message">You lose :(</span>');
 			$('#gameReset').modal('show');
 			$('#gameResetYes').on('click', function() {
 				gameReset();
 				$('#gameReset').modal('hide');
 			});
 		} else if (hiddenWord.trim() === gameWordToArr.join(' ')) {
-			$('#gameResult').append('<span>Winner, high fives all round!!</span>');
+			$('#gameResult').append('<span class="game--message">Winner, high fives all round!!</span>');
 			$('#gameReset').modal('show');
 			$('#gameResetYes').on('click', function() {
 				gameReset();
@@ -137,6 +136,7 @@ var hangman = (function() {
 		$('#gameLives').replaceWith(lifeSpan);
 		$('#gameBoard').removeClass('show');
 		$('#gameBoard').addClass('hidden');
+		$('.game--message').remove();
 		categorySelection();
 	};
 })();
