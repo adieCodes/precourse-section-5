@@ -41,3 +41,7 @@ input.game--submit {
   background-color: white;
   border: none;
 }
+
+.modal {
+  color: black;
+}
