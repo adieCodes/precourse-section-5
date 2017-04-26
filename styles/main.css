@@ -45,3 +45,15 @@ input.game--submit {
 .modal {
   color: black;
 }
+
+@media screen and (min-width: 400px) {
+  .container {
+    padding-left: 10%;
+  }
+}
+
+@media screen and (min-width: 725px) {
+  .container {
+    padding-left: 25%;
+  }
+}
